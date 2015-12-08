@@ -1,0 +1,150 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/default/main.xhtml">
+
+	<ui:param name="returnView" value="mainView"></ui:param>     
+    <ui:param name="headerClass" value="business-header-trip-administration"></ui:param>        
+    <ui:define name="content">                        
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr/>
+        
+
+      <div class="row">
+            <div class="col-sm-12">
+                <h2>Tus viajes</h2>
+				<div>
+                <p>Esta es tu lista de viajes. Añade o actualiza tus viajes en cualquier momento.</p>
+                </div>
+						<div class="container">
+    	
+					    		<h:dataTable value="#{findMyTripsMBean.listTripJPA}" var="tripJPA"
+					    			styleClass="table-responsive"
+					    			headerClass="order-table-header"
+					    			rowClasses="order-table-odd-row,order-table-even-row" >
+					
+									<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="#" />
+						   				</f:facet> 
+						    			<p align="center"><h:outputText value="#{tripJPA.id}" /></p>
+						 			</h:column>
+									<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Ciudad de Salida" />
+						   				</f:facet> 
+						    			<p align="center"><h:outputText value="#{tripJPA.departureCity}" /></p>
+						 			</h:column>
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Lugar de salida"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.fromPlace}" >     					
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Fecha de salida"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.departureDate}" >  
+						     				<f:convertDateTime locale="es_ES" dateStyle="short" timeZone="Europe/Madrid" type="date"/>			
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Fecha de llegada"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.departureTime}" >  
+						     			<f:convertDateTime pattern="HH:mm" />   					
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Ciudad destino"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.arrivalCity}" >     					
+						     			</h:outputText></p>
+						 			</h:column> 	
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Lugar de destino"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.toPlace}" >     					
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Asientos disponibles"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.availableSeats}" >     					
+						     			</h:outputText></p>
+						 			</h:column> 	
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Precio"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{tripJPA.price}" > 
+										<f:convertNumber pattern="#0.00" />   					
+						     			</h:outputText></p>
+						 			</h:column> 
+									<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Descripcion" />
+						   				</f:facet> 
+						    			<p align="center"><h:outputText value="#{tripJPA.description}" /></p>
+						 			</h:column>						 			
+									<h:column>		
+										<h:link outcome="updateTripInformationView" value="Update Trip" >
+											<f:param name="idTrip" value="#{tripJPA.id}" />						
+										</h:link>		
+						 			</h:column>
+						 			<h:column>			
+										<h:link outcome="findAllPassengersView" value="View Passengers" >
+											<f:param name="idTrip" value="#{tripJPA.id}" />						
+										</h:link>		
+						 			</h:column>
+					    		
+					    		</h:dataTable>
+						    
+						    </div>
+			<div class="container">
+				<p>
+				<h:outputText rendered="#{!findMyTripsMBean.isThereRows}" value="No hay ningún viaje registrado aún." ></h:outputText>
+				</p>
+			</div>
+            
+  
+ 			</div>
+ 	  </div>	
+       <div class="row">      
+
+            <div class="col-sm-12">
+            
+            	<h2>Añade un viaje</h2>
+            
+           		<h:link outcome="addTripView" >    
+	                 <p>Añade todos los viajes que vayas a realizar siempre que quieras. </p>
+	            </h:link>       
+                
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr/>
+
+	</div>
+    </ui:define>
+</ui:composition>        
+
+
+
+</html> 
+

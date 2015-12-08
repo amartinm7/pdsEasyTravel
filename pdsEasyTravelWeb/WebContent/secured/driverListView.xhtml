@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/default/main.xhtml">
+   
+
+	<ui:param name="returnView" value="mainView"></ui:param> 
+    <ui:param name="headerClass" value="business-header-trip-administration"></ui:param>      
+    <ui:define name="content">                        
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr/>
+        
+
+      <div class="row">
+            <div class="col-sm-12">
+                <h2>Los conductores</h2>
+				<div>
+                <p>Esta es la lista de conductores registrados en el sistema:</p>
+                </div>
+						<div class="container">
+    	
+					    		<h:dataTable value="#{listDriversMBean.listdriverJPA}" var="driverJPA"
+					    			styleClass="table-responsive"
+					    			headerClass="order-table-header"
+					    			rowClasses="order-table-odd-row,order-table-even-row" >
+					
+									<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Nif" />
+						   				</f:facet> 
+						    			<p align="center"><h:outputText value="#{driverJPA.nif}" /></p>
+						 			</h:column>
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Nombre"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{driverJPA.name}" >     					
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Apellidos"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{driverJPA.surname}" >  
+						     							
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Teléfono"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{driverJPA.phone}" >  					
+						     			</h:outputText></p>
+						 			</h:column> 
+						 			<h:column>
+						   				<f:facet name="header">
+						   					<h:outputText value="Email"/>
+						   				</f:facet>
+						     			<p align="center"><h:outputText value="#{driverJPA.email}" >     					
+						     			</h:outputText></p>
+						 			</h:column> 	
+						    		
+					    		</h:dataTable>
+						    
+						    </div>
+			<div class="container">
+				<p>
+				<h:outputText rendered="#{!listDriversMBean.isThereRows}" value="No hay ningún conductor registrado aún." ></h:outputText>
+				</p>
+			</div>
+            
+  
+ 			</div>
+ 	  </div>	
+
+   		<hr/>
+
+	</div>
+    </ui:define>
+</ui:composition>        
+
+
+
+</html> 
+

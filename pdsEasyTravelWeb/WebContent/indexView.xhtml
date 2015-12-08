@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+       <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+            <title>EasyTravel</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+
+            <h:outputStylesheet name="css/business-frontpage.css" />
+            
+            <h:outputStylesheet name="css/table.css" />
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.js" />
+            
+        </f:facet>
+
+        <f:facet name="last">
+            <h:outputStylesheet name="css/font-awesome.css" />
+        </f:facet>
+
+    </h:head>   
+
+    <h:body>              
+   <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <h:outputLabel styleClass="navbar-brand">EasyTravel</h:outputLabel>
+             
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+<!--                     <li> -->
+<!--                         <a href="#">About</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <a href="#">Services</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <a href="#">Contact</a> -->
+<!--                     </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+  <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+
+    </header>
+
+                  
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr/>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Entra en el sistema</h2>
+
+                   
+<!-- 				   <div style="margin-:50px;" class="container"> -->
+						<div class="container">
+							
+				        <h:form >
+				
+						    <h:panelGrid columns="1" styleClass="form-group" >
+						
+									<h:panelGroup>
+										<h:outputLabel  for="email">Email:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										 <h:inputText size="50" id="email" value="#{loginMBean.email}"  required="true" requiredMessage="Debe introducir su email" />
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="email" style="color:red"></h:message>
+									</h:panelGroup>										
+									
+									<h:panelGroup>
+										<h:outputLabel  for="password">Password:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="password" value="#{loginMBean.password}" required="true" requiredMessage="Debe introducir su password"/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="password" style="color:red"></h:message>
+									</h:panelGroup>		
+									
+									<h:panelGroup rendered="#{loginMBean.showError}">
+										<h:outputLabel style="color:red">No se existe ninguna cuenta con ese usuario y contraseña.</h:outputLabel>
+									</h:panelGroup>										
+																		
+									<h:panelGroup rendered="#{loginMBean.resetShowError}">
+											
+									</h:panelGroup>		
+						
+								
+						    </h:panelGrid>
+				
+				    		<h:commandButton value="Login" action="#{loginMBean.login}" styleClass="btn btn-default"/>
+
+				
+						</h:form>
+					</div>
+				
+				<div>
+
+				<h:graphicImage value="/resources/images/bloqueSeparadorMini.png"/>
+
+                <p>Introduce tus credeciales para entrar en el sistema. </p><p>En caso contrario puedes registrarte en el formulario anexo.</p>
+                </div>
+                
+            </div>
+            <div class="col-sm-4">
+                <h2>Registrate</h2>
+<!--                 <address> -->
+<!--                     <strong>Start Bootstrap</strong> -->
+<!--                     <br>3481 Melrose Place</br> -->
+<!--                     <br>Beverly Hills, CA 90210</br> -->
+<!--                     <br></br> -->
+<!--                 </address> -->
+<!--                 <address> -->
+<!--                     <abbr title="Phone">P:</abbr>(123) 456-7890 -->
+<!--                     <br></br> -->
+<!--                     <abbr title="Email">E:</abbr> <a href="mailto:#">name@example.com</a> -->
+<!--                 </address> -->
+
+						<div class="container">
+						
+							  <h:form align="left" id="registro" >	
+								<h:panelGrid columns="1" id="registroPanel">
+								
+									<h:panelGroup>
+										<h:outputLabel  for="usuario">Usuario:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>        
+										<h:selectOneRadio id="usuario"
+									                      value="#{registerUserMBean.userJPA.userType}" required="true" >
+									            
+									        <f:selectItem id="item1" itemLabel="Conductor " itemValue="driver"  />
+											
+									        <f:selectItem id="item2" itemLabel=" Pasajero" 	itemValue="passenger"/>
+									        
+									    </h:selectOneRadio>
+									</h:panelGroup>
+									<h:panelGroup>			
+										<h:message for="usuario" style="color:red"></h:message>
+									</h:panelGroup>	
+									
+									<h:panelGroup>
+										<h:outputLabel  for="email">Email:</h:outputLabel>
+									</h:panelGroup>	
+									<h:panelGroup>			
+										<h:inputText size="50" id="email" value="#{registerUserMBean.userJPA.email}" required="true" requiredMessage="Debe introducir su email" title="Introduzca su email">
+											<f:validateLength minimum="5" maximum="50" />
+										 </h:inputText>
+									</h:panelGroup>
+									<h:panelGroup>			
+										<h:message for="email" style="color:red"></h:message>
+									</h:panelGroup>									
+									<h:panelGroup>
+										<h:outputLabel  for="password">Password:</h:outputLabel>
+									</h:panelGroup>	
+									<h:panelGroup>			
+										<h:inputSecret size="50" id="password" value="#{registerUserMBean.userJPA.password}" required="true" requiredMessage="Debe introducir su password" title="Introduzca su password">
+											<f:validateLength minimum="4" maximum="50" />
+										</h:inputSecret>
+									</h:panelGroup>	
+									<h:panelGroup>		
+										<h:message for="password" style="color:red"></h:message>
+									</h:panelGroup>	
+							
+									<h:panelGroup>
+										<h:outputLabel  for="nombre">Nombre:</h:outputLabel>
+									</h:panelGroup>	
+									<h:panelGroup>			
+										<h:inputText size="50" id="nombre" value="#{registerUserMBean.userJPA.name}" required="true" requiredMessage="Debe introducir su nombre" title="Introduzca su nombre">
+											<f:validateLength minimum="5" maximum="50" />
+										 </h:inputText>
+									</h:panelGroup>	
+									<h:panelGroup>			
+										<h:message for="nombre" style="color:red"></h:message>
+									</h:panelGroup>	
+									<h:panelGroup>
+										<h:outputLabel  for="apellidos">Apellidos:</h:outputLabel>
+									</h:panelGroup>	
+									<h:panelGroup>			
+										<h:inputText size="50" id="apellidos" value="#{registerUserMBean.userJPA.surname}" required="true" requiredMessage="Debe introducir sus apellidos" title="Introduzca sus apellidos">
+											<f:validateLength minimum="5" maximum="50" />
+										 </h:inputText>
+									</h:panelGroup>
+									<h:panelGroup>			
+										<h:message for="apellidos" style="color:red"></h:message>
+									</h:panelGroup>											
+									<h:panelGroup>
+										<h:outputLabel  for="telefono">Telefono:</h:outputLabel>
+									</h:panelGroup>	
+									<h:panelGroup>			
+										<h:inputText size="50" id="telefono" value="#{registerUserMBean.userJPA.phone}" required="true" requiredMessage="Debe introducir su telefono" title="Introduzca su telefono">
+											<f:validateLength minimum="9" maximum="9" />
+										 </h:inputText>
+									</h:panelGroup>		
+									<h:panelGroup>			
+										<h:message for="telefono" style="color:red"></h:message>
+									</h:panelGroup>	
+									
+									<h:panelGroup>
+										<h:outputLabel  for="nif">Nif:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="nif" value="#{registerUserMBean.userJPA.nif}" required="true" requiredMessage="Debe introducir el nif" title="Introduzca su nif">
+											<f:validateLength minimum="9" maximum="9" />
+										 </h:inputText>
+									</h:panelGroup>
+									<h:panelGroup>
+										<h:message for="nif" style="color:red"></h:message>
+									</h:panelGroup>			
+									
+									<h:panelGroup rendered="#{registerUserMBean.showSuccess}">
+										<h:outputLabel style="color:blue">La cuenta de usuario se ha creado con exito.</h:outputLabel>
+									</h:panelGroup>										
+																		
+									<h:panelGroup rendered="#{registerUserMBean.resetShowSuccess}">
+												<h:graphicImage value="/resources/images/bloqueSeparadorMini.png"/>
+									</h:panelGroup>										
+								</h:panelGrid>
+
+								 <h:commandButton action="#{registerUserMBean.registerUser}" value="registrar" class="btn btn-default" >
+    								<f:ajax execute="@form" render="registro"   />
+								 </h:commandButton>
+								
+						 	  </h:form>		
+    
+						    </div>
+
+
+
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr/>
+
+        <div class="row">
+            <div class="col-sm-4">
+            	<h:graphicImage value="/resources/images/travel_young_300_300.png" styleClass="img-circle img-responsive img-center"/>	
+                <h2>Se libre #1</h2>
+                <p>Sin compromisos. Siempre a tu disposición. Llega a tiempo y sin agobios.</p>
+            </div>
+            <div class="col-sm-4">
+            	<h:graphicImage value="/resources/images/viajar_300_300.png" styleClass="img-circle img-responsive img-center"/>	
+                <h2>En cualquier momento #2</h2>
+                <p>Haz tu reserva, en cualquier momento. Siempre hay alguien con quien realizar el trayecto. Comodo, sencillo y economico. </p>
+            </div>
+            <div class="col-sm-4">
+            	<h:graphicImage value="/resources/images/aston_martin_300_300.png" styleClass="img-circle img-responsive img-center"/>	
+                <h2>Elige coche #3</h2>
+                <p>¿Que coche te gusta? Elige entre una amplia oferta de coches. Viaja comodo. Viaja sin apreturas y llega a tiempo siempre disfrutando del trayecto.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr/>
+
+
+
+
+	</div>
+    
+   <div class="container">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright @ EasyTravel 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+    
+      
+
+      
+         
+
+</h:body>       
+
+</html> 

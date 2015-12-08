@@ -1,0 +1,148 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/default/main.xhtml">
+    
+    <ui:param name="returnView" value="mainView"></ui:param> 
+    <ui:param name="headerClass" value="business-header-your_cars"></ui:param>    
+    <ui:define name="content">                        
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr/>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Tu flota de coches</h2>
+				<div>
+                <p>Actualiza tus datos personales siempre que lo necesites y en cualquier momento. </p>
+                </div>
+						<div class="container">
+    	
+					    		<h:dataTable value="#{listCarsMBean.listCarJPA}" var="carJPA"
+					    			styleClass="table-responsive"
+					    			headerClass="order-table-header"
+					    			rowClasses="order-table-odd-row,order-table-even-row" >
+					
+					    			<h:column>
+					    				<!-- column header -->
+					    				<f:facet name="header">#</f:facet>
+					    				<!-- row record -->
+					    				#{carJPA.carRegistrationId}
+					    				
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Marca</f:facet>
+					    				
+					    				#{carJPA.brand}
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Modelo</f:facet>
+					    				#{carJPA.model}
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Color</f:facet>
+					    				#{carJPA.color}
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Eliminar</f:facet>
+					    				<h:form>
+										<h:commandLink action="#{deleteCarMBean.deleteCar}" value="eliminar" alt="Eliminar coche de la lista">
+											<f:param name="carRegistrationId" value="#{carJPA.carRegistrationId}" />
+										</h:commandLink>
+										</h:form>
+					    			</h:column>
+					    		
+					    		</h:dataTable>
+						    
+						    </div>
+			<div>
+				<p>
+				<h:outputText rendered="#{!listCarsMBean.isThereRows}" value="No hay ningún coche registrado aún." ></h:outputText>
+				</p>
+			</div>
+
+            </div>
+            
+
+            <div class="col-sm-4">
+            
+            		<h2>Añade un coche</h2>
+            
+					<div class="container">
+						
+				        <h:form >
+				
+						    <h:panelGrid columns="1" styleClass="form-group">
+						
+									<h:panelGroup>
+										<h:outputLabel  for="brand">Marca:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										 <h:inputText size="50" id="brand" value="#{addCarMBean.carJPA.brand}"  required="true" requiredMessage="Debe introducir la marca del coche"/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="brand" style="color:red"></h:message>
+									</h:panelGroup>										
+									
+									<h:panelGroup>
+										<h:outputLabel  for="modelo">Modelo:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="modelo" value="#{addCarMBean.carJPA.model}" required="true" requiredMessage="Debe introducir el modelo del coche"/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="modelo" style="color:red"></h:message>
+									</h:panelGroup>		
+									
+									<h:panelGroup>
+										<h:outputLabel  for="color">Color:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="color" value="#{addCarMBean.carJPA.color}" required="true" requiredMessage="Debe introducir el color del coche"/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="color" style="color:red"></h:message>
+									</h:panelGroup>		
+						
+									
+						    </h:panelGrid>
+				
+				    		<h:commandButton value="añadir" action="#{addCarMBean.addCar}" styleClass="btn btn-default "/>
+				
+						</h:form>
+				
+				</div> 
+
+            </div>
+
+
+
+    
+        </div>
+        <!-- /.row -->
+
+        <hr/>
+
+	</div>
+    </ui:define>
+</ui:composition>        
+
+
+</html> 
+

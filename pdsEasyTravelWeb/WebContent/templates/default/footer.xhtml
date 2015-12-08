@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+      <div class="container">
+
+           	<h:link outcome="#{returnView}" title="Volver" styleClass="glyphicon glyphicon-chevron-left" value="Volver">   
+           	</h:link>   
+
+      </div>     
+
+                
+      <div class="container">	
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                	<h:form >
+		           	<h:commandLink action="#{logoutMBean.logout}"  styleClass="glyphicon glyphicon-log-out" title="Salir del sistema" value=" Salir del sistema">
+		           	</h:commandLink>     	
+		           </h:form>
+                    <p>Copyright @ EasyTravel 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+</ui:composition>

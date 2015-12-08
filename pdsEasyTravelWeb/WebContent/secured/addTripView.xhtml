@@ -1,0 +1,173 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/default/main.xhtml">
+    
+    <ui:param name="returnView" value="findMyTripsView"></ui:param> 
+    <ui:param name="headerClass" value="business-header-trip-administration"></ui:param>        
+    <ui:define name="content">                        
+
+    <!-- Page Content -->
+   <div class="container">
+
+        <hr/>
+        
+
+      <div class="row">
+            <div class="col-sm-8">
+                <h2>Añade</h2>
+				<div>
+                <p>Rellena este formulario para mantener los datos de tu viaje siempre organizados.</p>
+                </div>
+						<div class="container">
+    
+     					<h:form >
+				
+						    <h:panelGrid columns="1" styleClass="form-group">
+						
+						
+									<h:panelGroup>
+										<h:outputLabel  for="description">Descripcion:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										 <h:inputText size="50" id="description" value="#{addTripMBean.tripJPA.description}"  required="true" requiredMessage="Debe introducir una descripción del viaje."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="description"></h:message>
+									</h:panelGroup>		
+						
+									<h:panelGroup>
+										<h:outputLabel  for="departureCity">Ciudad de salida:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										 <h:inputText size="50" id="departureCity" value="#{addTripMBean.tripJPA.departureCity}"  required="true" requiredMessage="Debe introducir una ciudad de salida."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="departureCity"></h:message>
+									</h:panelGroup>									
+
+									<h:panelGroup>
+										<h:outputLabel  for="fromPlace">Lugar de salida:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="fromPlace" value="#{addTripMBean.tripJPA.fromPlace}" required="true" requiredMessage="Debe introducir un sitio de partida del viaje."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="fromPlace"></h:message>
+									</h:panelGroup>		
+									
+									<h:panelGroup>
+										<h:outputLabel  for="departureDate">Fecha de salida:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="departureDate" value="#{addTripMBean.tripJPA.departureDate}" required="true" requiredMessage="Debe introducir una fecha de salida.">
+											<f:convertDateTime pattern="dd/MM/yyyy"/>  
+										</h:inputText>										
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="departureDate"></h:message>
+									</h:panelGroup>		
+									
+									<h:panelGroup>
+										<h:outputLabel  for="departureTime">Hora de salida:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="departureTime" value="#{addTripMBean.tripJPA.departureTime}" required="true" requiredMessage="Debe introducir una hora de salida.">
+											<f:convertDateTime pattern="HH:mm"/>  
+										</h:inputText>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="departureTime"></h:message>
+									</h:panelGroup>	
+									
+									<h:panelGroup>
+										<h:outputLabel  for="arrivalCity">Ciudad de destino:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="arrivalCity" value="#{addTripMBean.tripJPA.arrivalCity}" required="true" requiredMessage="Debe introducir una ciudad de destino."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="arrivalCity"></h:message>
+									</h:panelGroup>	
+																		
+									<h:panelGroup>
+										<h:outputLabel  for="toPlace">Lugar de destino:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="toPlace" value="#{addTripMBean.tripJPA.toPlace}" required="true" requiredMessage="Debe introducir un lugar de destino."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="toPlace"></h:message>
+									</h:panelGroup>																					
+									
+									<h:panelGroup>
+										<h:outputLabel  for="availableSeats">Asientos disponibles:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="availableSeats" value="#{addTripMBean.tripJPA.availableSeats}" required="true" requiredMessage="Debe introducir los asientos disponibles."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="availableSeats"></h:message>
+									</h:panelGroup>		
+									
+									<h:panelGroup>
+										<h:outputLabel  for="price">Precio:</h:outputLabel>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:inputText size="50" id="price" value="#{addTripMBean.tripJPA.price}" required="true" requiredMessage="Debe introducir el precio del trayecto."/>
+									</h:panelGroup>
+									
+									<h:panelGroup>
+										<h:message for="price"></h:message>
+									</h:panelGroup>											
+						
+									
+						    </h:panelGrid>
+				
+				    		<h:commandButton value="guardar" action="#{addTripMBean.addTrip}" styleClass="btn btn-default "/>
+
+				
+						</h:form>
+						
+				    </div>
+
+ 			</div>
+ 	 
+ 	        <div class="col-sm-4">
+                <h2>Todos los viajes que necesites</h2>
+				<div>
+                
+                <h:graphicImage value="/resources/images/more_trip.png" styleClass="img-circle img-responsive img-center"/>
+                </div>
+
+			 	
+			 </div>		 	 
+ 	  </div>							   			
+	  <hr/>
+	</div>
+	
+	
+	</ui:define>
+  </ui:composition>
+</html>

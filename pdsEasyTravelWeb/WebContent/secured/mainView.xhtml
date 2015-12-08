@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/default/main.xhtml">
+    
+	<ui:param name="returnView" value="mainView"></ui:param>      
+    <ui:param name="headerClass" value="business-header-carLight"></ui:param>                 
+    <ui:define name="content">           
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr/>
+
+ 
+
+        <div class="row">
+            
+            <div class="col-sm-4">
+            <h:form>
+             
+                <h:graphicImage value="/resources/images/personalData_300_300.png" styleClass="img-circle img-responsive img-center"/>	
+                <h2>Tus datos personales #1</h2>
+                
+              <h:link outcome="updatePersonalDataView" >    
+                <p>Consulta y modifica tus datos siempre que desees.</p>                
+             </h:link>   
+             </h:form>
+            </div>
+            
+            <div class="col-sm-4">
+                
+                <h:graphicImage value="/resources/images/snoopy_300_300.png" styleClass="img-circle img-responsive img-center"/>	
+                <h2>Planifica tu trayecto #2</h2>
+                
+	            <h:link outcome="findMyTripsView" rendered="#{loginMBean.isADriver}">       
+	                <p>Solo para usuarios registrados como conductores. Consulta y da de alta tus trayectos.</p>
+	            </h:link>
+	            <h:outputText rendered="#{!loginMBean.isADriver}" value="Solo para usuarios registrados como conductores. Si eres pasajero no puedes dar de alta ningun trayecto desde esta opción.">    
+                </h:outputText>              
+            </div>
+            <div class="col-sm-4">
+                
+                <h:graphicImage value="/resources/images/conducir_300_300.png" styleClass="img-circle img-responsive img-center"/>	
+                
+                <h2>¿Eres conductor? Añade un coche #3</h2>
+                
+                <h:link outcome="carListView" rendered="#{loginMBean.isADriver}">    
+                <p>Solo para usuarios registrados como conductores. Consulta y da de alta tu flota personal de vehiculos.</p>
+                </h:link> 
+                <h:outputText rendered="#{!loginMBean.isADriver}" value="Solo para usuarios registrados como conductores. Si eres pasajero no necesitas dar de alta ningún coche propio, y no necesitas entrar aqui.">    
+                </h:outputText>                 
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr/>
+		</div>
+     </ui:define>
+</ui:composition>        
+
+
+
+</html> 

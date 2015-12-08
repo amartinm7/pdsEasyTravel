@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<project basedir="." default="build" name="pdsEasyTravel">
+		
+		<!-- definition of global property -->
+		<property environment="env"/>
+		
+	    <target name="build-refprojects" description="Build all projects which reference this project. Useful to propagate changes.">
+	        <ant antfile="build.xml" dir="./pdsEasyTravel" inheritAll="false" target="build"/>
+	    </target>
+
+		<target name="build" depends="build-refprojects" >
+			<echo message="Proceso finalizado con exito"/>
+		</target>
+		
+
+
+
+</project>

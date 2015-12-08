@@ -1,0 +1,9 @@
+se han modificado los packages para adaptarlos a las capas.
+se han a�adido nuevos packages diferenciando la funcionalidad.
+
+en el caso de userFacade:
+- el metodo login devuelve un ticket con la session
+- el metodo logout invalida el ticket
+- se cambia la firma del metodo registerDriver para que acepte un driverJPA
+
+usar serial en la generacion de las tablas

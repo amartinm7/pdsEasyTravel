@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="pdsEasyTravelEJB" >
+		
+		
+<!-- definition of global property -->
+	<property environment="env"/>
+	<property name="jboss.home" value="${env.JBOSS_HOME}"/>
+		<!--<property name="jboss.home" value="/Users/antmarmo/Documents/DEVELOPER/spring-tool-suite-3.7.1.RELEASE-e4.5.1/wildfly-9.0.2.Final"/>-->
+	<property name="source" value="."/>
+	<property name="source.ejbModule" value="${source}/ejbModule"/>
+	<property name="build" value="${source}/build"/>
+	<property name="build.classes" value="${build}/classes"/>
+	<property name="dist" value="${source}/dist"/>
+	<property name="jboss-config" value="default"/>
+	<property name="jboss.module.dir" value="${jboss.home}/modules" />
+	<property name="debuglevel" value="source,lines,vars"/>        	
+
+   
+	
+		
+	<path id="jboss.classpath">
+		<fileset dir="${jboss.module.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>	
+		
+	<!-- setting pdsEasyTravelEJB classpath -->
+    <path id="pdsEasyTravelEJB.classpath">
+        <pathelement location="${build.classes}"/>
+        <path refid="jboss.classpath"/>
+    </path>
+		
+	<target name="clean">
+		<echo message="Limpiando temporales"/>
+		<echo message="EN CASO DE ERROR REVISAR LA PROPIEDAD jboss.home QUE PUEDE QUE NO ESTÉ BIEN CONFIGURADA"/>
+		 <echo message="${ant.version}"/>
+	        <delete dir="${build}"/>
+		 	<delete dir="${dist}"/>
+	</target>	
+		
+    <target name="init" depends="clean">
+    	<echo message="Creando temporales y copiando 'resources files'"/>
+        <mkdir dir="${build.classes}"/>
+    	<mkdir dir="${dist}"/>
+        <copy includeemptydirs="false" todir="${build.classes}">
+            <fileset dir="${source.ejbModule}"><!-- copy only resources -->
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+		
+    <target name="compileEjb" depends="init" >
+    	<echo message="compilando capa de negocio, compilando EJB's"/>
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${build.classes}" includeantruntime="false">
+            <src path="${source.ejbModule}"/>
+            <classpath refid="pdsEasyTravelEJB.classpath"/>
+        </javac>
+    </target>
+		
+
+	  <!-- Update the EJB jar file and create if not exist -->
+	  <target name="generateJAR" depends="compileEjb" >
+	  	<echo message="creando EJB JAR"/>
+	    <jar jarfile="${dist}/pdsEasyTravelEJB.jar"
+	      basedir="${build.classes}" 
+	      update="yes">
+	    </jar>
+	  </target>
+		
+	
+	
+	<target name="build" depends="generateJAR" >
+		<echo message="Proceso finalizado con exito"/>
+	</target>
+		
+</project>
