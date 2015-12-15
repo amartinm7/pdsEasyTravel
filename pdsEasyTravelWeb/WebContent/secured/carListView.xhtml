@@ -56,7 +56,7 @@
 					    			<h:column>
 					    				<f:facet name="header">Eliminar</f:facet>
 					    				<h:form>
-										<h:commandLink action="#{deleteCarMBean.deleteCar}" value="eliminar" alt="Eliminar coche de la lista">
+										<h:commandLink action="#{deleteCarMBean.deleteCar}"  alt="Eliminar coche de la lista" styleClass="glyphicon glyphicon-minus-sign" title="Elimina tu coche de la lista">
 											<f:param name="carRegistrationId" value="#{carJPA.carRegistrationId}" />
 										</h:commandLink>
 										</h:form>

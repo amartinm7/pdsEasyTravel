@@ -52,7 +52,7 @@ public class FacadeServicesEJB implements Serializable {
 			
 		} catch (Exception e) {
 			
-			System.err.println( String.format("No se ha podido obtener una referencia del EJB en cuestion. Revisar el lookup. %s", e.getMessage() ) );
+			System.err.println( String.format("No se ha podido obtener una referencia del EJB en cuestion. Revisar el lookup. %s : %s", this.getClass(), e.getMessage() ) );
 			throw e;
 		}
 
@@ -72,7 +72,7 @@ public class FacadeServicesEJB implements Serializable {
 			
 		} catch (Exception e) {
 			
-			System.err.println( String.format("No se ha podido obtener una referencia del EJB en cuestion. Revisar el lookup. %s", e.getMessage() ) );
+			System.err.println( String.format("No se ha podido obtener una referencia del EJB en cuestion. Revisar el lookup. %s : %s", this.getClass(), e.getMessage() ) );
 			throw e;
 		}
 

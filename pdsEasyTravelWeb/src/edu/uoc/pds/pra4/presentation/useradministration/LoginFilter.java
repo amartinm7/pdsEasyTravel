@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.uoc.pds.pra4.business.useradministration.ITicket;
 import edu.uoc.pds.pra4.presentation.navigation.NavigationMBean;
 
 /**
@@ -26,15 +27,24 @@ public class LoginFilter implements Filter{
      */
     public void doFilter( final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
     	
-        // coge el LoginMBean de session
-        final LoginMBean loginMBean = (LoginMBean)((HttpServletRequest)request).getSession().getAttribute( MBeanNames.LOGIN_MBEAN );
+    	HttpServletRequest req = (HttpServletRequest) request;
+    	HttpServletResponse resp = (HttpServletResponse) response;
+    	
+//        if (!req.getRequestURI().startsWith(req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER)) { // Skip JSF resources (CSS/JS/Images/etc)
+//            res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+//            res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+//            res.setDateHeader("Expires", 0); // Proxies.
+//        }
+    	
+        // coge el ticket de session
+        final ITicket ticket = (ITicket) ((HttpServletRequest)request).getSession().getAttribute("ticket");
          
         //comprueba si está logado.
-        if (loginMBean == null || !loginMBean.getLoggedIn()) {
-            String contextPath = ((HttpServletRequest)request).getContextPath();
-            ((HttpServletResponse)response).sendRedirect(contextPath + "/ "+ NavigationMBean.INDEX_VIEW );
+        if (ticket == null || !ticket.isValid()) {
+            String contextPath = req.getContextPath();
+            resp.sendRedirect(contextPath + "/"+ NavigationMBean.INDEX_VIEW + ".xhtml");
         }
-         
+
         chain.doFilter(request, response);
              
     }

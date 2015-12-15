@@ -30,14 +30,14 @@
 										<h:outputLabel  for="usuario">Tipo de usuario:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>	
-										<h:outputLabel  value="#{updatePersonalDataMBean.userJPA.userType}" />		
+										<h:outputLabel id="usuario" value="#{updatePersonalDataMBean.userJPA.userType}" />		
 									</h:panelGroup>	
 								
 									<h:panelGroup>
 										<h:outputLabel  for="email">Email:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>	
-										<h:outputLabel  value="#{updatePersonalDataMBean.userJPA.email}" />		
+										<h:outputLabel  id="email" value="#{updatePersonalDataMBean.userJPA.email}" />		
 									</h:panelGroup>							
 									<h:panelGroup>
 										<h:outputLabel  for="password">Password:</h:outputLabel>
@@ -89,7 +89,7 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:outputLabel  value="#{updatePersonalDataMBean.userJPA.nif}" />
+										<h:outputLabel id="nif" value="#{updatePersonalDataMBean.userJPA.nif}" />
 									</h:panelGroup>												
 									<h:panelGroup>
 												<h:graphicImage value="/resources/images/bloqueSeparadorMini.png"/>

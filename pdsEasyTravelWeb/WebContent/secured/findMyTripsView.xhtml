@@ -101,12 +101,12 @@
 						    			<p align="center"><h:outputText value="#{tripJPA.description}" /></p>
 						 			</h:column>						 			
 									<h:column>		
-										<h:link outcome="updateTripInformationView" value="Update Trip" >
+										<h:link outcome="updateTripInformationView" styleClass="glyphicon glyphicon-edit" title="actualiza tu viaje"  >
 											<f:param name="idTrip" value="#{tripJPA.id}" />						
 										</h:link>		
 						 			</h:column>
 						 			<h:column>			
-										<h:link outcome="findAllPassengersView" value="View Passengers" >
+										<h:link outcome="findAllPassengersView" styleClass="glyphicon glyphicon-eye-open" title="ver ocupantes">
 											<f:param name="idTrip" value="#{tripJPA.id}" />						
 										</h:link>		
 						 			</h:column>
@@ -127,12 +127,11 @@
 
             <div class="col-sm-12">
             
-            	<h2>Añade un viaje</h2>
-            
-           		<h:link outcome="addTripView" >    
-	                 <p>Añade todos los viajes que vayas a realizar siempre que quieras. </p>
-	            </h:link>       
-                
+            	<h2>Añade un viaje</h2>   
+                Añade todos los viajes que vayas a realizar siempre que quieras.
+                <h:link outcome="addTripView" >    
+	                 <p class="glyphicon glyphicon-plus-sign" title="añade tus viajes"> </p>
+	            </h:link>     
             </div>
 
         </div>
