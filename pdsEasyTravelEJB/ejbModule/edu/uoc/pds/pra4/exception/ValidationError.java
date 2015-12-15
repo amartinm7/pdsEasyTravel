@@ -30,6 +30,20 @@ public class ValidationError implements Serializable{
 	public String getFormatedMessageError(){
 		return String.format( MESSAGE, messageError );
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ValidationError [");
+		if (messageError != null) {
+			builder.append("messageError=");
+			builder.append(messageError);
+		}
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 	
 	
 }

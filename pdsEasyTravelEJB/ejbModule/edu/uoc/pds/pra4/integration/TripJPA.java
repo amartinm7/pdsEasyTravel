@@ -132,6 +132,7 @@ public class TripJPA implements Serializable, IValidable{
 		}
 		
 		if ( errors.size() > 0 ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), errors));
 			throw new TripAdministrationException(errors);
 		}	
 	}
@@ -174,6 +175,7 @@ public class TripJPA implements Serializable, IValidable{
 		}
 		
 		if ( errors.size() > 0 ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), errors));
 			throw new TripAdministrationException(errors);
 		}		
 	}

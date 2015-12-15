@@ -207,6 +207,7 @@ public class DriverJPA implements IUserJPA {
 		}
 		
 		if ( errors.size() > 0 ) {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), errors));
 			throw new UserAdministrationException(errors);
 		}
 	}

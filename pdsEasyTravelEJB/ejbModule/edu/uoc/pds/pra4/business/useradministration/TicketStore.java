@@ -51,12 +51,14 @@ public class TicketStore {
 	public void validateTicket( final ITicket ticket ) throws EasyTravelException {
 		
 		if (ticket == null) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "Session de usuario no valida. El usuario no se ha logado y no está guardada su session en el sistema.") );
 			throw new UserAdministrationException( new ValidationError("Session de usuario no valida. El usuario no se ha logado y no está guardada su session en el sistema."));
 		}
 		
 		ticket.validateTicket();
 		
 		if ( ! isTicketStored ( ticket ) ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "Session de usuario no valida. El usuario no se ha logado y no está guardada su session en el sistema.") );
 			throw new UserAdministrationException( new ValidationError("Session de usuario no valida. El usuario no se ha logado y no está guardada su session en el sistema."));
 		}
 		

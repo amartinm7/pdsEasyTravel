@@ -203,6 +203,7 @@ public class CarJPA implements Serializable, IValidable{
 		}
 		
 		if ( errors.size() > 0 ) {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), errors));
 			throw new UserAdministrationException(errors);
 		}
 	}
@@ -229,6 +230,7 @@ public class CarJPA implements Serializable, IValidable{
 		}
 		
 		if ( errors.size() > 0 ) {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), errors));
 			throw new UserAdministrationException(errors);
 		}
 	}
@@ -242,6 +244,7 @@ public class CarJPA implements Serializable, IValidable{
 		}
 		
 		if ( errors.size() > 0 ) {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), errors));
 			throw new UserAdministrationException(errors);
 		}
 	}

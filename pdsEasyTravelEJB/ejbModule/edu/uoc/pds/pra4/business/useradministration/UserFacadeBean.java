@@ -53,7 +53,7 @@ public class UserFacadeBean implements UserFacadeLocal, UserFacadeRemote, Serial
 		System.out.println(results);
 		
 		if ( results == null || results.size() == 0 ){
-			
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "Usuario incorrecto. Introduzca los datos de nuevo.") );
 			throw new UserAdministrationException( new ValidationError("Usuario incorrecto. Introduzca los datos de nuevo."));
 		} ;
 		
@@ -113,12 +113,14 @@ public class UserFacadeBean implements UserFacadeLocal, UserFacadeRemote, Serial
 		driverJPA.validateCaseInsert();
 		
 		if ( entityManager.find(DriverJPA.class, driverJPA.getNif()) != null ){
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "No ha sido posible persistir al conductor. Ya existe otro conductor con el mismo nif."));
 			throw new UserAdministrationException( new ValidationError("No ha sido posible persistir al conductor. Ya existe otro conductor con el mismo nif."));
 		}
 		
 		final List<UserJPA> results = getUserJPAByEmail( driverJPA.getEmail(), null);
 		
 		if ( results !=null && results.size() > 0  ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "No ha sido posible persistir al conductor. Ya existe otro usuario con el mismo email."));
 			throw new UserAdministrationException( new ValidationError("No ha sido posible persistir al conductor. Ya existe otro usuario con el mismo email."));
 		}
 		
@@ -147,12 +149,14 @@ public class UserFacadeBean implements UserFacadeLocal, UserFacadeRemote, Serial
 		passengerJPA.validateCaseInsert();
 		
 		if ( entityManager.find(PassengerJPA.class, passengerJPA.getNif()) != null ){
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "No ha sido posible persistir al pasajero. Ya existe otro pasajero con el mismo nif."));
 			throw new UserAdministrationException( new ValidationError("No ha sido posible persistir al pasajero. Ya existe otro pasajero con el mismo nif."));
 		}
 		
 		final List<UserJPA> results = getUserJPAByEmail( passengerJPA.getEmail(), null);
 		
 		if ( results !=null && results.size() > 0  ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "No ha sido posible persistir al pasajero. Ya existe otro usuario con el mismo email."));
 			throw new UserAdministrationException( new ValidationError("No ha sido posible persistir al pasajero. Ya existe otro usuario con el mismo email."));
 		}
 		
@@ -168,6 +172,7 @@ public class UserFacadeBean implements UserFacadeLocal, UserFacadeRemote, Serial
 		final List<UserJPA> results = getUserJPAByEmail( ticket.getEmail(), null);
 		
 		if ( results == null || results.size() == 0  ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "No existe el dueño del coche a persistir."));
 			throw new UserAdministrationException( new ValidationError("No existe el dueño del coche a persistir."));
 		}
 		
@@ -176,6 +181,7 @@ public class UserFacadeBean implements UserFacadeLocal, UserFacadeRemote, Serial
 		final DriverJPA driverJPA = entityManager.find( DriverJPA.class, userJPA.getNif() );
 		
 		if ( driverJPA == null ){
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "No se ha asignado un conductor valido."));
 			throw new UserAdministrationException( new ValidationError("No se ha asignado un conductor valido."));
 		}
 		

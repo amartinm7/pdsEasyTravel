@@ -157,6 +157,7 @@ public class Ticket implements ITicket{
 	public void validateTicket() throws EasyTravelException {
 		
 		if ( !this.isValid() ) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), "Session de usuario no valida. Se debe logar en el sistema.") );
 			throw new UserAdministrationException( new ValidationError("Session de usuario no valida. Se debe logar en el sistema."));
 		}
 		

@@ -68,15 +68,22 @@ public class TripAdministrationFacadeBean implements TripAdministrationFacadeLoc
 		
 		ticketStore.validateTicket( ticket );	
 		
-		final DriverJPA driverJPA = entityManager.find( DriverJPA.class, ticket.getNif() );
+		if ( ticket.isDriver() ){
 		
-		return driverJPA.getTrips();
+			final DriverJPA driverJPA = entityManager.find( DriverJPA.class, ticket.getNif() );
+			
+			return driverJPA.getTrips();
+		
+		} else {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), "El usuario no es de tipo conductor." ) );
+			throw new TripAdministrationException (new ValidationError("El usuario no es de tipo conductor."));
+		}
 	    	  
 	}
 	
 	
 	/**
-	 * Method that returns Collection of all trips by driver
+	 * Method that returns Collection of all trips: driver or passenger
 	 */
 	@Override
 	public Collection<TripJPA> listTrips( ITicket ticket ) throws EasyTravelException {
@@ -126,7 +133,7 @@ public class TripAdministrationFacadeBean implements TripAdministrationFacadeLoc
 			return passengerJPA;
 			
 		} else {
-			
+			System.err.println( String.format ( "%s : %s ", this.getClass(), "El usuario solicitado no es de tipo pasajero." ) );
 			throw new TripAdministrationException (new ValidationError("El usuario solicitado no es de tipo pasajero."));
 			
 		}
@@ -142,6 +149,7 @@ public class TripAdministrationFacadeBean implements TripAdministrationFacadeLoc
 		ticketStore.validateTicket( ticket );	
 		
 		if ( tripJPA == null || tripJPA.getId() == null ){
+			System.err.println( String.format ( "%s : %s ", this.getClass(), "No se puede recuperar un viaje sin su identificador." ) );
 			throw new TripAdministrationException (new ValidationError("No se puede recuperar un viaje sin su identificador."));
 		}
 		
@@ -168,6 +176,7 @@ public class TripAdministrationFacadeBean implements TripAdministrationFacadeLoc
 			entityManager.persist(tripJPA);
 			
 		} else {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), "El usuario es tipo pasajero. No puede dar de alta un viaje.") );
 			throw new TripAdministrationException (new ValidationError("El usuario es tipo pasajero. No puede dar de alta un viaje."));
 		}
 
@@ -191,6 +200,7 @@ public class TripAdministrationFacadeBean implements TripAdministrationFacadeLoc
 			entityManager.merge(tripJPAStored);
 			
 		} else {
+			System.err.println( String.format ( "%s : %s ", this.getClass(), "El usuario es tipo pasajero. No puede modificar un viaje.") );
 			throw new TripAdministrationException (new ValidationError("El usuario es tipo pasajero. No puede modificar un viaje."));
 		}
 		
