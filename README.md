@@ -8,8 +8,8 @@ To deploy the application, it's necessary to create a database model in a postgr
 Create an scheme called "practicauoc". 
 Create an user called "USER" with password "PASSWORD". 
 Give "ALL" grants to USER in the "practicauoc" scheme.
-Execute the inicial_data_v1.sql script file. This script will create the tables, views, sequences and will do all insert tables.
-To resume, create the model and the inicial data.
+Execute the inicial_data_v1.sql script file. This script will create the tables, views, sequences and will do all the insert tables.
+To resume, this script create the model and the initial data.
 
 Then you have to create a dataSource in Jboss called "jboss/postgresDS" with "USER" and "PASSWORD" tokens: user=USER and password="PASSWORD".
 After that, you have to run "ant build.xml" in the pdsEasyTravel source folder. 
