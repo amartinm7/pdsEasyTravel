@@ -84,7 +84,7 @@
         <hr/>
 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <h2>Entra en el sistema</h2>
 
                    
@@ -100,7 +100,7 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										 <h:inputText size="50" id="email" value="#{loginMBean.email}"  required="true" requiredMessage="Debe introducir su email" />
+										 <h:inputText size="50" id="email" value="#{loginMBean.email}"  required="true" requiredMessage="* Debes introducir tu email" />
 									</h:panelGroup>
 									
 									<h:panelGroup>
@@ -112,7 +112,7 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="password" value="#{loginMBean.password}" required="true" requiredMessage="Debe introducir su password"/>
+										<h:inputText size="50" id="password" value="#{loginMBean.password}" required="true" requiredMessage="* Debes introducir tu password"/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
@@ -144,7 +144,7 @@
                 </div>
                 
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <h2>Registrate</h2>
 <!--                 <address> -->
 <!--                     <strong>Start Bootstrap</strong> -->
@@ -169,8 +169,9 @@
 									
 									<h:panelGroup>        
 										<h:selectOneRadio id="usuario"
-									                      value="#{registerUserMBean.userJPA.userType}" required="true" >
-									            
+									                      value="#{registerUserMBean.userJPA.userType}" 
+									                      required="true" requiredMessage="* Debes seleccionar una opción" title="Selecciona una opción">
+
 									        <f:selectItem id="item1" itemLabel="Conductor " itemValue="driver"  />
 											
 									        <f:selectItem id="item2" itemLabel=" Pasajero" 	itemValue="passenger"/>
@@ -185,7 +186,7 @@
 										<h:outputLabel  for="email">Email:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>			
-										<h:inputText size="50" id="email" value="#{registerUserMBean.userJPA.email}" required="true" requiredMessage="Debe introducir su email" title="Introduzca su email">
+										<h:inputText size="50" id="email" value="#{registerUserMBean.userJPA.email}" required="true" requiredMessage="* Debes introducir tu email" title="Introduce tu email">
 											<f:validateLength minimum="5" maximum="50" />
 										 </h:inputText>
 									</h:panelGroup>
@@ -196,7 +197,7 @@
 										<h:outputLabel  for="password">Password:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>			
-										<h:inputSecret size="50" id="password" value="#{registerUserMBean.userJPA.password}" required="true" requiredMessage="Debe introducir su password" title="Introduzca su password">
+										<h:inputSecret size="50" id="password" value="#{registerUserMBean.userJPA.password}" required="true" requiredMessage="* Debes introducir tu password" title="Introduce tu password">
 											<f:validateLength minimum="4" maximum="50" />
 										</h:inputSecret>
 									</h:panelGroup>	
@@ -208,7 +209,7 @@
 										<h:outputLabel  for="nombre">Nombre:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>			
-										<h:inputText size="50" id="nombre" value="#{registerUserMBean.userJPA.name}" required="true" requiredMessage="Debe introducir su nombre" title="Introduzca su nombre">
+										<h:inputText size="50" id="nombre" value="#{registerUserMBean.userJPA.name}" required="true" requiredMessage="* Debes introducir tu nombre" title="Introduce tu nombre">
 											<f:validateLength minimum="5" maximum="50" />
 										 </h:inputText>
 									</h:panelGroup>	
@@ -219,7 +220,7 @@
 										<h:outputLabel  for="apellidos">Apellidos:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>			
-										<h:inputText size="50" id="apellidos" value="#{registerUserMBean.userJPA.surname}" required="true" requiredMessage="Debe introducir sus apellidos" title="Introduzca sus apellidos">
+										<h:inputText size="50" id="apellidos" value="#{registerUserMBean.userJPA.surname}" required="true" requiredMessage="* Debes introducir tus apellidos" title="Introduce tus apellidos">
 											<f:validateLength minimum="5" maximum="50" />
 										 </h:inputText>
 									</h:panelGroup>
@@ -230,7 +231,7 @@
 										<h:outputLabel  for="telefono">Telefono:</h:outputLabel>
 									</h:panelGroup>	
 									<h:panelGroup>			
-										<h:inputText size="50" id="telefono" value="#{registerUserMBean.userJPA.phone}" required="true" requiredMessage="Debe introducir su telefono" title="Introduzca su telefono">
+										<h:inputText size="50" id="telefono" value="#{registerUserMBean.userJPA.phone}" required="true" requiredMessage="* Debes introducir tu teléfono" title="Introduce tu telefono">
 											<f:validateLength minimum="9" maximum="9" />
 										 </h:inputText>
 									</h:panelGroup>		
@@ -243,7 +244,7 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="nif" value="#{registerUserMBean.userJPA.nif}" required="true" requiredMessage="Debe introducir el nif" title="Introduzca su nif">
+										<h:inputText size="50" id="nif" value="#{registerUserMBean.userJPA.nif}" required="true" requiredMessage="* Debes introducir tu nif" title="Introduce tu nif">
 											<f:validateLength minimum="9" maximum="9" />
 										 </h:inputText>
 									</h:panelGroup>
@@ -252,7 +253,8 @@
 									</h:panelGroup>			
 									
 									<h:panelGroup rendered="#{registerUserMBean.showSuccess}">
-										<h:outputLabel style="color:blue">La cuenta de usuario se ha creado con exito.</h:outputLabel>
+									    <span class="glyphicon glyphicon-ok" style="color:blue">  <h:graphicImage value="/resources/images/bloqueSeparadorMini.png"/>  </span>
+										<h:outputLabel style="color:blue">La cuenta de usuario se ha creado con exito. </h:outputLabel>
 									</h:panelGroup>										
 																		
 									<h:panelGroup rendered="#{registerUserMBean.resetShowSuccess}">
@@ -273,6 +275,7 @@
             </div>
         </div>
         <!-- /.row -->
+
 
         <hr/>
 

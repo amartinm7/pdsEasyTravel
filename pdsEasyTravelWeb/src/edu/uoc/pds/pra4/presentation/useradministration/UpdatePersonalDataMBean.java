@@ -57,14 +57,11 @@ public class UpdatePersonalDataMBean extends AbstractUserAdministration {
 
 	public UserJPA getUserJPA() {
 		
-		if ( userJPA == null || userJPA.getNif() == null || userJPA.getNif().equals("") ) {
-			
-			try {
-				userJPA = getUserFacade().getUserJPA( getTicket() );
-			} catch (Exception e) {
-				System.err.println( String.format (  "%s : %s ", this.getClass(), e.getMessage() ) );
-				return null;
-			}
+		try {
+			userJPA = getUserFacade().getUserJPA( getTicket() );
+		} catch (Exception e) {
+			System.err.println( String.format (  "%s : %s ", this.getClass(), e.getMessage() ) );
+			return null;
 		}
 		
 		return userJPA;

@@ -35,11 +35,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										 <h:inputText size="50" id="description" value="#{addTripMBean.tripJPA.description}"  required="true" requiredMessage="Debe introducir una descripción del viaje."/>
+										 <h:inputText size="50" id="description" value="#{addTripMBean.tripJPA.description}"  required="true" requiredMessage="* Debes introducir una descripción del viaje."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="description"></h:message>
+										<h:message for="description" style="color:red"></h:message>
 									</h:panelGroup>		
 						
 									<h:panelGroup>
@@ -47,11 +47,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										 <h:inputText size="50" id="departureCity" value="#{addTripMBean.tripJPA.departureCity}"  required="true" requiredMessage="Debe introducir una ciudad de salida."/>
+										 <h:inputText size="50" id="departureCity" value="#{addTripMBean.tripJPA.departureCity}"  required="true" requiredMessage="* Debes introducir una ciudad de salida."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="departureCity"></h:message>
+										<h:message for="departureCity" style="color:red"></h:message>
 									</h:panelGroup>									
 
 									<h:panelGroup>
@@ -59,11 +59,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="fromPlace" value="#{addTripMBean.tripJPA.fromPlace}" required="true" requiredMessage="Debe introducir un sitio de partida del viaje."/>
+										<h:inputText size="50" id="fromPlace" value="#{addTripMBean.tripJPA.fromPlace}" required="true" requiredMessage="* Debes introducir un sitio de partida del viaje."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="fromPlace"></h:message>
+										<h:message for="fromPlace" style="color:red"></h:message>
 									</h:panelGroup>		
 									
 									<h:panelGroup>
@@ -71,13 +71,13 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="departureDate" value="#{addTripMBean.tripJPA.departureDate}" required="true" requiredMessage="Debe introducir una fecha de salida.">
+										<h:inputText size="50" id="departureDate" value="#{addTripMBean.tripJPA.departureDate}" required="true" requiredMessage="* Debes introducir una fecha de salida.">
 											<f:convertDateTime pattern="dd/MM/yyyy"/>  
 										</h:inputText>										
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="departureDate"></h:message>
+										<h:message for="departureDate" style="color:red"></h:message>
 									</h:panelGroup>		
 									
 									<h:panelGroup>
@@ -85,13 +85,13 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="departureTime" value="#{addTripMBean.tripJPA.departureTime}" required="true" requiredMessage="Debe introducir una hora de salida.">
+										<h:inputText size="50" id="departureTime" value="#{addTripMBean.tripJPA.departureTime}" required="true" requiredMessage="* Debes introducir una hora de salida.">
 											<f:convertDateTime pattern="HH:mm"/>  
 										</h:inputText>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="departureTime"></h:message>
+										<h:message for="departureTime" style="color:red"></h:message>
 									</h:panelGroup>	
 									
 									<h:panelGroup>
@@ -99,11 +99,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="arrivalCity" value="#{addTripMBean.tripJPA.arrivalCity}" required="true" requiredMessage="Debe introducir una ciudad de destino."/>
+										<h:inputText size="50" id="arrivalCity" value="#{addTripMBean.tripJPA.arrivalCity}" required="true" requiredMessage="* Debes introducir una ciudad de destino."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="arrivalCity"></h:message>
+										<h:message for="arrivalCity" style="color:red"></h:message>
 									</h:panelGroup>	
 																		
 									<h:panelGroup>
@@ -111,11 +111,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="toPlace" value="#{addTripMBean.tripJPA.toPlace}" required="true" requiredMessage="Debe introducir un lugar de destino."/>
+										<h:inputText size="50" id="toPlace" value="#{addTripMBean.tripJPA.toPlace}" required="true" requiredMessage="* Debes introducir un lugar de destino."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="toPlace"></h:message>
+										<h:message for="toPlace" style="color:red"></h:message>
 									</h:panelGroup>																					
 									
 									<h:panelGroup>
@@ -123,11 +123,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="availableSeats" value="#{addTripMBean.tripJPA.availableSeats}" required="true" requiredMessage="Debe introducir los asientos disponibles."/>
+										<h:inputText size="50" id="availableSeats" value="#{addTripMBean.tripJPA.availableSeats}" required="true" requiredMessage="* Debes introducir los asientos disponibles."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="availableSeats"></h:message>
+										<h:message for="availableSeats" style="color:red"></h:message>
 									</h:panelGroup>		
 									
 									<h:panelGroup>
@@ -135,11 +135,11 @@
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:inputText size="50" id="price" value="#{addTripMBean.tripJPA.price}" required="true" requiredMessage="Debe introducir el precio del trayecto."/>
+										<h:inputText size="50" id="price" value="#{addTripMBean.tripJPA.price}" required="true" requiredMessage="* Debes introducir el precio del trayecto."/>
 									</h:panelGroup>
 									
 									<h:panelGroup>
-										<h:message for="price"></h:message>
+										<h:message for="price" style="color:red"></h:message>
 									</h:panelGroup>											
 						
 									
