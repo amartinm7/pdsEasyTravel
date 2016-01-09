@@ -1,5 +1,6 @@
 package edu.uoc.pds.pra4.business.useradministration;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,8 +11,13 @@ import edu.uoc.pds.pra4.exception.ValidationError;
  * TicketStore
  * @author amm
  */
-public class TicketStore {
+public class TicketStore implements Serializable {
 	
+	/**
+	 * serial id
+	 */
+	private static final long serialVersionUID = -4175636593763385294L;
+
 	private final Map<String, ITicket> storeMap;
 	
 	private static final TicketStore ticketStore = new TicketStore();

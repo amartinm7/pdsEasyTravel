@@ -112,10 +112,10 @@ public class TripJPA implements Serializable, IValidable{
 		if (fromPlace == null|| fromPlace.equals("")) {
 			errors.add( new ValidationError("fromPlace") );
 		}
-		if (departureDate == null|| departureDate.equals("")) {
+		if (departureDate == null) {
 			errors.add( new ValidationError("departureDate") );
 		}
-		if (departureTime == null|| departureTime.equals("")) {
+		if (departureTime == null) {
 			errors.add( new ValidationError("departureTime") );
 		}
 		if (arrivalCity == null|| arrivalCity.equals("")) {
@@ -124,10 +124,10 @@ public class TripJPA implements Serializable, IValidable{
 		if (toPlace == null|| toPlace.equals("")) {
 			errors.add( new ValidationError("toPlace") );
 		}
-		if (availableSeats == null|| availableSeats.equals("")) {
+		if (availableSeats == null) {
 			errors.add( new ValidationError("availableSeats") );
 		}
-		if (price == null|| price.equals("")) {
+		if (price == null) {
 			errors.add( new ValidationError("price") );
 		}
 		
@@ -155,10 +155,10 @@ public class TripJPA implements Serializable, IValidable{
 		if (fromPlace == null|| fromPlace.equals("")) {
 			errors.add( new ValidationError("fromPlace") );
 		}
-		if (departureDate == null|| departureDate.equals("")) {
+		if (departureDate == null) {
 			errors.add( new ValidationError("departureDate") );
 		}
-		if (departureTime == null|| departureTime.equals("")) {
+		if (departureTime == null) {
 			errors.add( new ValidationError("departureTime") );
 		}
 		if (arrivalCity == null|| arrivalCity.equals("")) {
@@ -167,10 +167,10 @@ public class TripJPA implements Serializable, IValidable{
 		if (toPlace == null|| toPlace.equals("")) {
 			errors.add( new ValidationError("toPlace") );
 		}
-		if (availableSeats == null|| availableSeats.equals("")) {
+		if (availableSeats == null) {
 			errors.add( new ValidationError("availableSeats") );
 		}
-		if (price == null|| price.equals("")) {
+		if (price == null) {
 			errors.add( new ValidationError("price") );
 		}
 		
