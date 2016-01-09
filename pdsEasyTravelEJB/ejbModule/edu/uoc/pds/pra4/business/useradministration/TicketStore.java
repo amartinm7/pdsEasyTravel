@@ -11,7 +11,7 @@ import edu.uoc.pds.pra4.exception.ValidationError;
  * TicketStore
  * @author amm
  */
-public class TicketStore implements Serializable {
+public final class TicketStore implements Serializable {
 	
 	/**
 	 * serial id
@@ -20,7 +20,7 @@ public class TicketStore implements Serializable {
 
 	private final Map<String, ITicket> storeMap;
 	
-	private static final TicketStore ticketStore = new TicketStore();
+	private static final TicketStore TICKET_STORE = new TicketStore();
 	
 	private TicketStore(){
 		super();
@@ -29,24 +29,24 @@ public class TicketStore implements Serializable {
 	
 	public static TicketStore getTicketStore(){
 		
-		return ticketStore;
+		return TICKET_STORE;
 	}
 	
 	public void addTicket( final ITicket ticket ){
 		
-		ticketStore.storeMap.put( ticket.getEmail(), ticket );
+		TICKET_STORE.storeMap.put( ticket.getEmail(), ticket );
 		
 	}
 	
 	public void removeTicket( final ITicket ticket ){
 		
-		ticketStore.storeMap.remove( ticket.getEmail() );
+		TICKET_STORE.storeMap.remove( ticket.getEmail() );
 		
 	}
 	
 	private boolean isTicketStored( final ITicket ticket ){
 		
-		boolean isStored = ( ticketStore.storeMap.get( ticket.getEmail() ) != null );
+		boolean isStored = ( TICKET_STORE.storeMap.get( ticket.getEmail() ) != null );
 		return isStored;
 	}
 	
