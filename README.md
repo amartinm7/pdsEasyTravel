@@ -23,4 +23,10 @@ Enjoy
 
 
 ![main](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/2.main.png)
+![personalData](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/3.datos_personales.png)
+![yourCars](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/4.Tus%20coches.png)
+![yourTravels](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/5.tus%20viajes.png)
+![newTravel](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/6.crear%20un%20viaje.png)
+![yourPassengers](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/8.tus%20viajeros.png)
+![about](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/9.about.png)
 
