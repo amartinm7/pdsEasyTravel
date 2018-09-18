@@ -1,3 +1,5 @@
+![index](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/1.index.png)
+
 # pdsEasyTravel
 This project is an application to manage the travel info as Uber style. It's intended as a concept proof. It's not finished yet.
 The application is a J2EE pure application: Java Server Faces v2, boostrap v3, EJB v3, Hibernate v5 and JBoss WildFly 9. 
@@ -20,4 +22,5 @@ The application will be deployed in jboss and it will be ready to work.
 Enjoy
 
 
+![main](https://raw.githubusercontent.com/amartinm7/pdsEasyTravel/master/screenshots/2.main.png)
 
